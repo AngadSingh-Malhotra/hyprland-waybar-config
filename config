@@ -1,0 +1,140 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 30,
+	"spacing": 5,
+	"modules-left": ["hyprland/workspaces", "temperature", "idle_inhibitor", "network", "custom/bluetooth"],
+	"modules-center": ["clock"],
+	"modules-right": ["battery", "pulseaudio", "backlight", "cpu", "memory",  "hyprland/language", "tray"],
+
+	"hyprland/workspaces":
+	{
+	   "format": "<span size='larger'>{icon}</span>",
+	   "on-click": "activate",
+	   "format-icons":
+	      {
+	        "active": "\uf444",
+	        "default": "\uf4c3"
+	      },
+	   "icon-size": 10,
+	   "sort-by-number": true,
+	   "persistent-workspaces":
+	     {
+	       "1": [],
+	       "2": [],
+	       "3": [],
+	       "4": [],
+	       "5": []
+	     }
+	},
+
+	"temperature":
+	{
+	   "format": "  {temperatureC}°C  ",
+	   "critical-threshold": 80,
+	   "format-critical":"{}°C \uf0238"
+	},
+
+
+	"clock":
+	{
+	   "format":"{:%Y.%m.%d | %H:%M}"
+	},
+
+	"custom/media":
+	{
+	   "format": "{icon} {text} ",
+	   "return-type": "json",
+	   "maximum-length":40,
+	   "format-icons":
+	   {
+	     "spotify":"\uf1bc",
+	     "default":"\uf001"
+	   },
+	   "escape": true,
+	   //"exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+	},
+
+	"battery":
+	{
+	   "format":"  {icon}  {capacity}%   ",
+	   "format-icons": //["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"]
+		{
+		  "charging": "\ueea1",	
+ 	   	  "discharging":["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+		  "not-charging": "\ueea1",	
+		  "full": "\ueea1"
+        	},
+	   "interval":10
+	},
+
+	"pulseaudio":
+	{
+	   "format": " {icon}  {volume}%  ",
+	   "format-muted": " \ueee8 ",
+	   "format-icons":
+	     {
+	       "default":
+		[
+		  "\uf026",
+		  "\uf027",
+		  "\uf028"
+		]
+	     },
+	   "scroll-step":5
+	},
+
+	"backlight":
+	{
+	   "format": "  \uf185 {percent}% "
+	},
+
+	"custom/bluetooth":
+	{
+	   "format":"  \uf294  ",
+	   "tooltip": false,
+	   "on-click": "blueman-manager",
+	   "interval":60
+	},
+
+	"network":
+	{
+	   "format": "",
+	   "format-wifi": " {icon}  ",
+	   "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
+	   "tooltip-format-wifi":"{essid} ({signalStrength}%)",
+	   "on-click": "alacritty -e nmtui"
+	},
+
+	"cpu":
+	{
+	   "format": "   \uf4bc {usage}%  "
+	},
+
+	"memory":
+	{
+	   "interval": 30,
+	   "format": "  \uefc5 {}%   "
+	},
+
+	"idle_inhibitor":
+	{
+	   "format": " {icon}  ",
+	   "format-icons": 
+	     {
+	       "activated":" \udb80\udd76 ",  
+	       "deactivated":" \udb83\udfaa "
+	     }
+	},
+
+	"hyprland/language":
+	{
+	   "format": "{short}   |"
+	},
+
+	"tray":
+	{
+	   "icon-size":16,
+	   "spacing":16
+	}			
+}
